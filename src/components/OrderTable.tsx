@@ -2,8 +2,6 @@
 import { Table, Button, Popconfirm, Space } from "antd";
 import { IOrder } from "@/types/Order";
 import axios from "axios";
-import { title } from "process";
-
 interface Props {
   data: IOrder[];
   onEdit: (o: IOrder) => void;

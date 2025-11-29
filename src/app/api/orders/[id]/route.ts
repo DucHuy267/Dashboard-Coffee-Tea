@@ -5,7 +5,6 @@ import { IOrder } from "@/types/Order";
 import { IOrderItem } from "@/types/Order";
 import { IProduct } from "@/types/Product";
 
-
 // --------------------------
 // GET All Orders (with profit + deep populate)
 // --------------------------
@@ -18,7 +17,6 @@ const orders = await Order.find()
 path: "items.productId",
 populate: { path: "category", model: "Category" },
 });
-
 
 const populatedOrders = orders.map((order) => {
 const profit = order.items.reduce((acc: number, item: IOrderItem) => {
