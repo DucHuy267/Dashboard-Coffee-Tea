@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
-import { Order } from "@/models/Order";
+import Order  from "@/models/Order";
 import { IOrder } from "@/types/Order";
 import { IOrderItem } from "@/types/Order";
 import { IProduct } from "@/types/Product";
