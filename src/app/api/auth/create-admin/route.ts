@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
 import User from '@/models/User';
 import { NextResponse } from 'next/server';
 

@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, models } from "mongoose";
+import { Schema, model, models } from "mongoose";
 import { ICustomer } from "@/types/Customer";
 
 const CustomerSchema = new Schema<ICustomer>(

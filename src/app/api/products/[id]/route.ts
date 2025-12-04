@@ -2,9 +2,6 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import { Product } from "@/models/Product";
 import { IProduct } from "@/types/Product";
-import { Order } from "@/models/Order";
-import { Category } from "@/models/Category";
-
 
 export async function GET(req: Request, context: { params: Promise<{ id: string }> }) {
   const { id } = await context.params;

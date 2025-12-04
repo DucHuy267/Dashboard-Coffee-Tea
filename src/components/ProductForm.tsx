@@ -3,7 +3,7 @@ import { Form, Input, Button, Select, Card, Divider } from "antd";
 import useSWR from "swr";
 import { IProduct } from "@/types/Product";
 import { ICategory } from "@/types/Category";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
@@ -20,17 +20,27 @@ export default function ProductForm({ initial, onSaved }: Props) {
   const [price, setPrice] = useState<string>("");
   const [originalPrice, setOriginalPrice] = useState<string>("");
 
+ const formattedValues = useMemo(() => {
+  if (!initial) return { price: "", originalPrice: "" };
+  return {
+    price: initial.price?.toLocaleString() || "",
+    originalPrice: initial.originalPrice?.toLocaleString() || ""
+  };
+  }, [initial]);
+
   useEffect(() => {
     if (initial) {
       form.setFieldsValue(initial);
-      setPrice(initial.price?.toLocaleString() || "");
-      setOriginalPrice(initial.originalPrice?.toLocaleString() || "");
     } else {
       form.resetFields();
-      setPrice("");
-      setOriginalPrice("");
     }
   }, [initial, form]);
+
+  useEffect(() => {
+    setPrice(formattedValues.price);
+    setOriginalPrice(formattedValues.originalPrice);
+  }, [formattedValues]);
+
 
   const formatNumber = (value: string) => {
     if (!value) return "";

@@ -13,7 +13,7 @@ export async function GET(req: Request) {
 
     const customers = await Customer.find({ name: regex }).sort({ createdAt: -1 });
     return NextResponse.json(customers);
-  } catch (err) {
+  } catch {
     return NextResponse.json({ error: "Cannot fetch customers" }, { status: 500 });
   }
 }
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
     await connectDB();
     const newCustomer = await Customer.create(data);
     return NextResponse.json(newCustomer, { status: 201 });
-  } catch (err) {
+  } catch {
     return NextResponse.json({ error: "Cannot create customer" }, { status: 500 });
   }
 }
