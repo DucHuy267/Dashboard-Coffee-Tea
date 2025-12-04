@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
-import  Product  from "@/models/Product";
+import Product from "@/models/Product";
 import { IProduct } from "@/types/Product";
 
 export async function GET(req: Request, context: { params: Promise<{ id: string }> }) {
