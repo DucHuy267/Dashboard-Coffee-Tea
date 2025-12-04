@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import { Schema, models, model } from "mongoose";
 import { IOrder } from "@/types/Order";
 
 const OrderSchema = new Schema<IOrder>(
@@ -6,7 +6,7 @@ const OrderSchema = new Schema<IOrder>(
     customerName: { type: String, required: true },
     items: [
       {
-        productId: { type: Schema.Types.ObjectId, ref: "Product", required: true }, // Đảm bảo ref là "Product"
+        productId: { type: Schema.Types.ObjectId, ref: "Product", required: true },
         quantity: { type: Number, required: true, min: 1 },
       },
     ],
@@ -20,4 +20,4 @@ const OrderSchema = new Schema<IOrder>(
   { timestamps: true }
 );
 
-export const Order = models.Order || model<IOrder>("Order", OrderSchema);
+export default models.Order || model<IOrder>("Order", OrderSchema);

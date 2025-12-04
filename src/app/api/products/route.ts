@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
-import { Product } from "@/models/Product";
+import  Product  from "@/models/Product";
 import { IProduct } from "@/types/Product";
 
 // GET all products hoặc search
@@ -12,6 +12,7 @@ export async function GET(req: Request) {
     const regex = new RegExp(search, "i"); // search không phân biệt hoa thường
 
     const products = await Product.find({ name: regex }).populate("category");
+        console.log("products:", products);
     return NextResponse.json(products);
   } catch (err) {
     return NextResponse.json({ error: "Cannot fetch products" }, { status: 500 });
