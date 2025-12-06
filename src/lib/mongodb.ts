@@ -1,5 +1,6 @@
 // lib/mongodb.ts
 import mongoose, { Mongoose } from "mongoose";
+import "@/models"; // Đảm bảo tất cả các model được đăng ký
 
 const MONGODB_URI = process.env.MONGODB_URI as string;
 

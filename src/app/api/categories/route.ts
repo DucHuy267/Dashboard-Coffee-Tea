@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
-import { Category } from "@/models/Category";
+import Category from "@/models/Category";
 import { ICategory } from "@/types/Category";
 
 // GET /api/categories

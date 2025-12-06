@@ -10,4 +10,4 @@ const CustomerSchema = new Schema<ICustomer>(
   { timestamps: true }
 );
 
-export const Customer = models.Customer || model<ICustomer>("Customer", CustomerSchema);
+export default models.Customer || model<ICustomer>("Customer", CustomerSchema);
