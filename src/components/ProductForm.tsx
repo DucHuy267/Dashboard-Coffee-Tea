@@ -95,9 +95,11 @@ export default function ProductForm({ initial, onSaved }: Props) {
           rules={[{ required: true, message: "Vui lòng nhập giá" }]}
         >
           <Input
+            type="tel" // ⚠️ bắt buộc: tránh scientific format
+            inputMode="numeric"
             value={price}
             onChange={(e) => {
-              const val = e.target.value.replace(/[^\d]/g, ""); // chỉ giữ số
+              const val = e.target.value.replace(/[^\d]/g, ""); 
               setPrice(val);
             }}
             onBlur={() => setPrice(formatNumber(price))}
@@ -112,6 +114,8 @@ export default function ProductForm({ initial, onSaved }: Props) {
           rules={[{ required: true, message: "Vui lòng nhập giá gốc" }]}
         >
           <Input
+            type="tel"
+            inputMode="numeric"
             value={originalPrice}
             onChange={(e) => {
               const val = e.target.value.replace(/[^\d]/g, "");
