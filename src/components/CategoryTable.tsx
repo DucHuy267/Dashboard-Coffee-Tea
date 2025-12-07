@@ -1,8 +1,7 @@
 'use client';
-import { Table, Button, Popconfirm } from "antd";
+import { Table, Button, Popconfirm, Space } from "antd";
 import { ICategory } from "@/types/Category";
 import axios from "axios";
-import "./CategoryTable.css";
 
 interface Props {
   data: ICategory[];
@@ -27,14 +26,15 @@ export default function CategoryTable({ data, onEdit, mutate }: Props) {
       title: "Hành động",
       key: "action",
       render: (_: unknown, record: ICategory) => (
-        <div className="action-buttons">
-          <Button className="edit-btn" onClick={() => onEdit(record)}>
+        <Space>
+          <Button className="edit-btn" onClick={() => onEdit(record)} 
+                  style={{backgroundColor:'#a9744f', color:'#fff',  }}>
             Sửa
           </Button>
           <Popconfirm title="Xóa danh mục?" onConfirm={() => handleDelete(record._id!)}>
             <Button danger className="delete-btn">Xóa</Button>
           </Popconfirm>
-        </div>
+        </Space>
       ),
       fixed: 'right' as const,
       width: 140,
@@ -44,6 +44,7 @@ export default function CategoryTable({ data, onEdit, mutate }: Props) {
   return (
     <div className="category-table-wrapper">
       <Table
+       style={{borderRadius: 12,boxShadow: "0 6px 15px rgba(0,0,0,0.1)" }}
         dataSource={data}
         columns={columns}
         rowKey="_id"

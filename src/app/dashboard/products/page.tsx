@@ -38,7 +38,7 @@ export default function ProductsPage() {
     <AdminLayout>
       <div style={{ marginBottom: 16, display: "flex", justifyContent: "space-between" }}>
         <h2>Quản lý sản phẩm</h2>
-        <Button type="primary" onClick={openCreate}>
+        <Button type="primary" onClick={openCreate} style={{ background:'#a9744f'}}>
           Thêm sản phẩm
         </Button>
       </div>

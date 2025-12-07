@@ -20,6 +20,7 @@ export default function LoginPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values),
       });
+
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem('token', data.token);
@@ -36,24 +37,112 @@ export default function LoginPage() {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', padding: 16 }}>
-      <Card style={{ width: '100%', maxWidth: 400, boxShadow: '0 4px 12px rgba(0,0,0,0.1)', borderRadius: 8 }}>
-        <Typography.Title level={3} style={{ textAlign: 'center', marginBottom: 24 }}>
-          Đăng nhập
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 20,
+        background: "linear-gradient(120deg, #fff0d9, #ffd9b3, #ffcc99)",
+      }}
+    >
+      <Card
+        style={{
+          width: "100%",
+          maxWidth: 420,
+          textAlign: "center",
+          borderRadius: 22,
+          backdropFilter: "blur(12px)",
+          background: "rgba(255,255,255,0.75)",
+          boxShadow: "0 12px 35px rgba(120,60,20,0.25)",
+          border: "1px solid rgba(255,255,255,0.5)",
+          transition: "0.3s",
+        }}
+        hoverable
+      >
+        <div style={{ marginBottom: 10 }}>
+          <span style={{ fontSize: 48 }}>☕</span>
+        </div>
+
+        <Typography.Title
+          level={2}
+          style={{
+            color: "#6B3A19",
+            fontWeight: 800,
+            fontSize: 30,
+            marginBottom: 10,
+          }}
+        >
+          Chào mừng trở lại
         </Typography.Title>
+
+        <p style={{ color: "#A06A3A", fontSize: 16, marginBottom: 30 }}>
+          Ly Since Coffee & Tea Management ☕
+        </p>
+
         <Form layout="vertical" onFinish={handleLogin}>
-          <Form.Item label="Tên đăng nhập" name="username" rules={[{ required: true, message: 'Vui lòng nhập tên đăng nhập' }]}>
-            <Input placeholder="Tên đăng nhập" />
+          <Form.Item
+            label={<span style={{ color: "#6B3A19", fontWeight: 600 }}>Tên đăng nhập</span>}
+            name="username"
+            rules={[{ required: true, message: 'Vui lòng nhập tên đăng nhập' }]}
+          >
+            <Input
+              placeholder="Nhập tên đăng nhập"
+              style={{
+                borderRadius: 10,
+                height: 45,
+                borderColor: "#C48A5A",
+              }}
+            />
           </Form.Item>
-          <Form.Item label="Mật khẩu" name="password" rules={[{ required: true, message: 'Vui lòng nhập mật khẩu' }]}>
-            <Input.Password placeholder="Mật khẩu" />
+
+          <Form.Item
+            label={<span style={{ color: "#6B3A19", fontWeight: 600 }}>Mật khẩu</span>}
+            name="password"
+            rules={[{ required: true, message: 'Vui lòng nhập mật khẩu' }]}
+          >
+            <Input.Password
+              placeholder="••••••••"
+              style={{
+                borderRadius: 10,
+                height: 45,
+                borderColor: "#C48A5A",
+              }}
+            />
           </Form.Item>
+
           <Form.Item>
-            <Button type="primary" htmlType="submit" loading={loading} block>
+            <Button
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+              block
+              style={{
+                height: 50,
+                borderRadius: 14,
+                fontWeight: 700,
+                fontSize: 18,
+                background: "linear-gradient(135deg, #d2691e, #8B4513)",
+                border: "none",
+                boxShadow: "0 6px 18px rgba(140,80,30,0.45)",
+                transition: "0.3s",
+              }}
+              onMouseEnter={(e) => {
+                (e.target as HTMLButtonElement).style.transform = "scale(1.04)";
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLButtonElement).style.transform = "scale(1)";
+              }}
+            >
               Đăng nhập
             </Button>
           </Form.Item>
         </Form>
+
+        <p style={{ marginTop: 15, fontSize: 14, color: "#996849" }}>
+          © 2025 Ly Since Coffee & Tea
+        </p>
       </Card>
     </div>
   );

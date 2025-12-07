@@ -28,7 +28,10 @@ export default function CategoriesPage() {
     <AdminLayout>
       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 15 }}>
         <h2>Quản lý danh mục</h2>
-        <Button type="primary" onClick={() => { setEditing(undefined); setVisible(true); }}>Thêm danh mục</Button>
+        <Button type="primary" onClick={() => { setEditing(undefined); setVisible(true); }}
+          style={{ background:'#a9744f'}}>
+          Thêm danh mục
+        </Button>
       </div>
 
       {categories && <CategoryTable data={categories} mutate={mutate} onEdit={(c) => { setEditing(c); setVisible(true); }} />}

@@ -1,8 +1,7 @@
 'use client';
-import { Table, Button, Popconfirm } from "antd";
+import { Table, Button, Popconfirm, Space } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { IProduct } from "@/types/Product";
-import "./ProductTable.css";
 
 interface Props {
   data: IProduct[];
@@ -66,8 +65,9 @@ export default function ProductTable({ data, onEdit, mutate }: Props) {
       title: "Hành động",
       key: "action",
       render: (_, record) => (
-        <div className="action-buttons">
-          <Button className="edit-btn" onClick={() => onEdit(record)}>
+        <Space>
+          <Button className="edit-btn" onClick={() => onEdit(record)} 
+                  style={{backgroundColor:'#a9744f', color:'#fff',  }}>
             Sửa
           </Button>
           <Popconfirm
@@ -76,16 +76,16 @@ export default function ProductTable({ data, onEdit, mutate }: Props) {
           >
             <Button danger className="delete-btn">Xóa</Button>
           </Popconfirm>
-        </div>
+        </Space>
       ),
-      fixed: "right",
-      width: 140,
+      width: 150,
     },
   ];
 
   return (
     <div className="product-table-wrapper">
       <Table<IProduct>
+        style={{borderRadius: 12,boxShadow: "0 6px 15px rgba(0,0,0,0.1)" }}
         dataSource={data}
         columns={columns}
         rowKey={(record) => record._id!}

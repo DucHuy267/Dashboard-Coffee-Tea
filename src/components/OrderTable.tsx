@@ -78,7 +78,7 @@ export default function OrderTable({ data, onEdit, mutate }: Props) {
       width: 150,
       render: (_: unknown, record: IOrder) => (
         <Space>
-          <Button style={{backgroundColor:'#1890ff', color:'#fff',  }} type="default" onClick={() => onEdit(record)}>
+          <Button style={{backgroundColor:'#a9744f', color:'#fff',  }} type="default" onClick={() => onEdit(record)}>
             Sửa
           </Button>
           <Popconfirm title="Xóa đơn hàng?" onConfirm={() => handleDelete(record._id!)}>
@@ -91,6 +91,7 @@ export default function OrderTable({ data, onEdit, mutate }: Props) {
 
   return (
     <Table
+     style={{borderRadius: 12,boxShadow: "0 6px 15px rgba(0,0,0,0.1)" }}
       dataSource={data ?? []}
       columns={columns}
       rowKey="_id"

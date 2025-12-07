@@ -1,1 +1,58 @@
 @import 'antd/dist/reset.css';
+
+/* custom menu styles
+/* chữ mặc định */
+.custom-menu .ant-menu-item {
+  color: #a9744f !important;
+  font-weight: 600 !important; /* in đậm */
+}
+.custom-menu .ant-menu-item .ant-menu-item-icon {
+  color: #a9744f !important;
+  font-weight: 600 !important;
+}
+/* hover */
+.custom-menu .ant-menu-item:hover {
+  background-color: #a9744f !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+.custom-menu .ant-menu-item:hover .ant-menu-item-icon {
+  color: #fff !important;
+}
+/* selected (đang active)*/
+.custom-menu .ant-menu-item-selected {
+  background-color: #a9744f !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+.custom-menu .ant-menu-item-selected .ant-menu-item-icon {
+  color: #fff !important;
+}
+/* hiệu ứng chuyển động */
+.custom-menu .ant-menu-item {
+  transition: all 0.25s ease-in-out;
+}
+.custom-menu .ant-menu-item:hover {
+  transform: scale(1.05);
+}
+
+/* màu nền + màu icon cho nút thu gọn */
+.ant-layout-sider-trigger {
+  background: #a9744f !important; /* nâu */
+  color: #fff !important;         /* icon trắng */
+  font-weight: 700;
+}
+
+/* hover đẹp hơn */
+.ant-layout-sider-trigger:hover {
+  background: #8a5c3e !important; /* nâu đậm hơn */
+  color: #fff !important;
+}
+
+/* Card title styles */
+.ant-card-head-title {
+  color: #563d27 !important;
+  font-weight: 700;
+}
+
+

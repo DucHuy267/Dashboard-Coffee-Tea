@@ -87,7 +87,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
   ];
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: '100vh'}}>
       <Sider
         collapsible
         collapsed={collapsed}
@@ -95,23 +95,35 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         width={230}
         breakpoint="lg"
         collapsedWidth={screens.lg ? 80 : 0}
-        style={{ position: 'fixed', left: 0, top: 0, bottom: 0, zIndex: 100 }}
+        style={{ position: 'fixed', left: 0, top: 0, bottom: 0, zIndex: 100 , background: '#f8f6f2'}}
       >
         <div
           style={{
-            height: 64,
+            height: 50,
             margin: 16,
-            color: '#fff',
+            color: '#64472d',
             textAlign: 'center',
             fontSize: 22,
             fontWeight: 'bold',
             letterSpacing: 1,
+            borderBottom: '2px solid #eee',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
-          TEA STORE
+          LY SINCE
+          <h6> Coffe & Tea</h6>
         </div>
 
-        <Menu theme="dark" mode="inline" selectedKeys={[selectedKey]} items={menuItems} />
+        <Menu
+          theme="dark"
+          mode="inline"
+          selectedKeys={[selectedKey]}
+          items={menuItems}
+          className="custom-menu"
+          style={{ background: "#f8f6f2" }}
+        />
+
       </Sider>
 
       <Layout
@@ -122,7 +134,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
       >
         <Header
           style={{
-            background: '#fff',
+            background: '#f8f6f2',
             padding: '0 20px',
             fontSize: 16,
             fontWeight: 500,
@@ -135,24 +147,25 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
             zIndex: 10,
           }}
         >
-          <span>Admin Dashboard {username && `- ${username}`}</span>
+          <span>Admin </span>
           <div>
-            {!screens.lg && (
+            {/* {!screens.lg && (
               <Button type="text" onClick={() => setCollapsed(!collapsed)} style={{ marginRight: 10 }}>
                 ☰
               </Button>
-            )}
-            <Button type="primary" onClick={handleLogout}>
-              Logout
+            )} */}
+            {username && <span style={{ marginRight: 15 }}>Xin chào, <b>{username}</b></span>}
+            <Button type="primary" onClick={handleLogout}
+                    style={{background: '#64472d'}}>
+              Đăng xuất
             </Button>
           </div>
         </Header>
 
         <Content
           style={{
-            margin: 16,
             padding: 20,
-            background: '#fff',
+            background: '#f8f6f2',
             borderRadius: 8,
             minHeight: 'calc(100vh - 64px)',
           }}

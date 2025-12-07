@@ -33,7 +33,7 @@ export default function CustomerTable({ data, onEdit, mutate }: Props) {
       key: "action",
       render: (_: unknown, record: ICustomer) => (
         <>
-          <Button style={{backgroundColor:'#1890ff', color:'#fff',  }} 
+          <Button style={{backgroundColor:'#a9744f', color:'#fff',  }}
                   onClick={() => onEdit(record)}>
             Sửa
           </Button>
@@ -45,5 +45,8 @@ export default function CustomerTable({ data, onEdit, mutate }: Props) {
     },
   ];
 
-  return <Table<ICustomer> dataSource={data} columns={columns} rowKey="_id" />;
+  return <Table<ICustomer> 
+  dataSource={data} columns={columns} rowKey="_id" 
+   style={{borderRadius: 12,boxShadow: "0 6px 15px rgba(0,0,0,0.1)" }}
+  />;
 }

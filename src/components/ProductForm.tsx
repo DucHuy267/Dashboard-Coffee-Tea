@@ -78,7 +78,7 @@ export default function ProductForm({ initial, onSaved }: Props) {
   };
 
   return (
-    <Card className="max-w-md mx-auto mt-8 shadow-lg rounded-2xl">
+    <Card className="max-w-md mx-auto mt-8 shadow-lg rounded-2xl" >
       <Form form={form} layout="vertical" onFinish={onFinish} className="space-y-4">
         <Form.Item
           label="Tên sản phẩm"

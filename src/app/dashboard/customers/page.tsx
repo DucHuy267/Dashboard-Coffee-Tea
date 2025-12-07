@@ -27,7 +27,10 @@ export default function CustomersPage() {
     <AdminLayout>
       <div style={{ marginBottom: 16, display: "flex", justifyContent: "space-between" }}>
         <h2>Quản lý khách hàng</h2>
-        <Button type="primary" onClick={() => { setEditing(undefined); setVisible(true); }}>Thêm khách hàng</Button>
+        <Button type="primary" onClick={() => { setEditing(undefined); setVisible(true); }}
+          style={{ background:'#a9744f'}}>
+          Thêm khách hàng
+        </Button>
       </div>
 
       {customers && (

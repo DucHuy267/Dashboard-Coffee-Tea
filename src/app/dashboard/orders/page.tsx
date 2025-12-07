@@ -49,7 +49,7 @@ export default function OrdersPage() {
     <AdminLayout>
     <div style={{ marginBottom: 16, display: "flex", justifyContent: "space-between" }}>
       <h2 >Quản lý đơn hàng</h2>
-      <Button type="primary" onClick={handleAdd} >
+      <Button type="primary" onClick={handleAdd} style={{ background:'#a9744f'}} >
         Thêm đơn hàng
       </Button>
     </div>
