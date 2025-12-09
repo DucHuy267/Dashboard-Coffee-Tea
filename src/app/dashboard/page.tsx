@@ -10,9 +10,6 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   BarChart, Bar, ResponsiveContainer
 } from 'recharts';
-import { Color } from 'antd/es/color-picker';
-import { title } from 'process';
-import Title from 'antd/es/typography/Title';
 
 const fetcher = <T,>(url: string): Promise<T> => fetch(url).then(res => res.json());
 
