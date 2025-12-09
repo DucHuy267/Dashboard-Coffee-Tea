@@ -33,6 +33,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
     if (pathname.startsWith('/dashboard/categories')) return '2';
     if (pathname.startsWith('/dashboard/orders')) return '3';
     if (pathname.startsWith('/dashboard/customers')) return '4';
+    if (pathname.startsWith('/dashboard/supplies')) return '5';
     return '0';
   })();
 
@@ -84,6 +85,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
     { key: '2', label: <Link href="/dashboard/categories">🗂️ Danh mục</Link> },
     { key: '3', label: <Link href="/dashboard/orders">🧾 Đơn hàng</Link> },
     { key: '4', label: <Link href="/dashboard/customers">👥 Khách hàng</Link> },
+    { key: '5', label: <Link href="/dashboard/supplies">🚚 Nhập hàng</Link> },
   ];
 
   return (

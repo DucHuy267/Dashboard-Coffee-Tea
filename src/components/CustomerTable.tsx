@@ -2,6 +2,7 @@
 import { Table, Button, Popconfirm } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { ICustomer } from "@/types/Customer";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 interface Props {
   data: ICustomer[];
@@ -34,11 +35,10 @@ export default function CustomerTable({ data, onEdit, mutate }: Props) {
       render: (_: unknown, record: ICustomer) => (
         <>
           <Button style={{backgroundColor:'#a9744f', color:'#fff',  }}
-                  onClick={() => onEdit(record)}>
-            Sửa
+                  onClick={() => onEdit(record)} icon={<EditOutlined />} >
           </Button>
           <Popconfirm title="Xóa khách hàng?" onConfirm={() => handleDelete(record._id!)}>
-            <Button danger>Xóa</Button>
+            <Button danger icon={<DeleteOutlined />}></Button>
           </Popconfirm>
         </>
       ),

@@ -2,6 +2,7 @@
 import { Table, Button, Popconfirm, Space } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { IProduct } from "@/types/Product";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 interface Props {
   data: IProduct[];
@@ -66,15 +67,14 @@ export default function ProductTable({ data, onEdit, mutate }: Props) {
       key: "action",
       render: (_, record) => (
         <Space>
-          <Button className="edit-btn" onClick={() => onEdit(record)} 
+          <Button className="edit-btn" onClick={() => onEdit(record)} icon={<EditOutlined />} 
                   style={{backgroundColor:'#a9744f', color:'#fff',  }}>
-            Sửa
           </Button>
           <Popconfirm
             title="Xóa sản phẩm?"
             onConfirm={() => handleDelete(record._id!)}
           >
-            <Button danger className="delete-btn">Xóa</Button>
+            <Button danger className="delete-btn" icon={<DeleteOutlined />}></Button>
           </Popconfirm>
         </Space>
       ),

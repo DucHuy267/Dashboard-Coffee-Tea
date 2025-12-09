@@ -26,6 +26,11 @@ export default function OrderForm({ initial, onSaved }: Props) {
     }
   }, [initial, form]);
 
+  const handleReset = () => {
+  form.resetFields();
+  setItems([]); // reset danh sách sản phẩm
+};
+
   // Load toàn bộ sản phẩm
   useEffect(() => {
     const fetchProducts = async () => {
@@ -203,7 +208,11 @@ export default function OrderForm({ initial, onSaved }: Props) {
         Tổng tiền: {new Intl.NumberFormat('vi-VN').format(total)}Đ
       </div>
 
-      <Button type="primary" htmlType="submit">Lưu</Button>
+      <div style={{ display: "flex", gap: 10 }}>
+        <Button type="primary" htmlType="submit">Lưu</Button>
+        <Button danger onClick={handleReset}>Reset</Button>
+      </div>
+
     </Form>
   );
 }

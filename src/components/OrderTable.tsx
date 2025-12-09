@@ -2,6 +2,7 @@
 import { Table, Button, Popconfirm, Space } from "antd";
 import { IOrder } from "@/types/Order";
 import axios from "axios";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 interface Props {
   data: IOrder[];
   onEdit: (o: IOrder) => void;
@@ -78,11 +79,11 @@ export default function OrderTable({ data, onEdit, mutate }: Props) {
       width: 150,
       render: (_: unknown, record: IOrder) => (
         <Space>
-          <Button style={{backgroundColor:'#a9744f', color:'#fff',  }} type="default" onClick={() => onEdit(record)}>
-            Sửa
+          <Button style={{backgroundColor:'#a9744f', color:'#fff',  }} type="default" onClick={() => onEdit(record)}
+            icon={<EditOutlined />} >
           </Button>
           <Popconfirm title="Xóa đơn hàng?" onConfirm={() => handleDelete(record._id!)}>
-            <Button danger>Xóa</Button>
+            <Button danger icon={<DeleteOutlined />}></Button>
           </Popconfirm>
         </Space>
       ),

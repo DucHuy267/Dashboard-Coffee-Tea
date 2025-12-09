@@ -99,7 +99,7 @@ export default function ProductForm({ initial, onSaved }: Props) {
             inputMode="numeric"
             value={price}
             onChange={(e) => {
-              const val = e.target.value.replace(/[^\d]/g, ""); 
+              const val = e.target.value.replace(/[^0-9.]/g, "");
               setPrice(val);
             }}
             onBlur={() => setPrice(formatNumber(price))}
@@ -118,7 +118,7 @@ export default function ProductForm({ initial, onSaved }: Props) {
             inputMode="numeric"
             value={originalPrice}
             onChange={(e) => {
-              const val = e.target.value.replace(/[^\d]/g, "");
+              const val = e.target.value.replace(/[^0-9.]/g, "");
               setOriginalPrice(val);
             }}
             onBlur={() => setOriginalPrice(formatNumber(originalPrice))}

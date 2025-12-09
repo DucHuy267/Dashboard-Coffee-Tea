@@ -2,6 +2,7 @@
 import { Table, Button, Popconfirm, Space } from "antd";
 import { ICategory } from "@/types/Category";
 import axios from "axios";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 interface Props {
   data: ICategory[];
@@ -27,12 +28,11 @@ export default function CategoryTable({ data, onEdit, mutate }: Props) {
       key: "action",
       render: (_: unknown, record: ICategory) => (
         <Space>
-          <Button className="edit-btn" onClick={() => onEdit(record)} 
+          <Button className="edit-btn" onClick={() => onEdit(record)} icon={<EditOutlined />} 
                   style={{backgroundColor:'#a9744f', color:'#fff',  }}>
-            Sửa
           </Button>
           <Popconfirm title="Xóa danh mục?" onConfirm={() => handleDelete(record._id!)}>
-            <Button danger className="delete-btn">Xóa</Button>
+            <Button danger className="delete-btn" icon={<DeleteOutlined />}></Button>
           </Popconfirm>
         </Space>
       ),

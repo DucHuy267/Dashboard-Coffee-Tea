@@ -208,7 +208,7 @@ export default function DashboardHomePage() {
 
       <Row gutter={[16, 16]}>
         <Col xs={24} lg={12}>
-          <Card
+          <Card 
             title={
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span>📊 Doanh thu</span>
@@ -247,7 +247,6 @@ export default function DashboardHomePage() {
               </div>
             }
             style={cardStyle}
-            bodyStyle={{ padding: 5 }}
           >
             <ResponsiveContainer width="100%" height={300}>
               {viewType === "day" ? (
